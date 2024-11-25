@@ -1,0 +1,227 @@
+<!-- Special Offers and Deals -->
+        <div class="special-offers">
+            <div class="special-context">
+                <h2 class="special-offers-title">Special Offers and Deals</h2>
+                <p>"Don’t miss out on exclusive deals and limited-time offers—your dream getaway is closer than you think!"</p>
+            </div>
+
+            <div class="slider-container">
+                <button class="slide-btn prev-btn" onclick="slide(-1)">&#10094;</button>
+                <div class="cards-wrapper">
+                    <div class="cards">
+                        <div class="card">
+                            <img src="images/card 1.png" class="card-img-top" alt="Boracay">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title">Boracay</h5>
+                                    <button class="heart-button" onclick="toggleHeart(this)"><i class="fas fa-heart"></i></button>
+                                </div>
+                                <p class="card-text">Boracay offers the ultimate tropical paradise with its powdery white sands, turqouise waters, and breathtaking sunsets. Dive into adventure, relatxation, and unforgettable siland viabes all in one destinations.</p>
+                                <hr>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="price">$129.00/person</span>
+                                    <a href="#" class="btn btn-primary">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="images/card 2.png" class="card-img-top" alt="El Nido">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title">El Nido Palawan</h5>
+                                    <button class="heart-button" onclick="toggleHeart(this)"><i class="fas fa-heart"></i></button>
+                                </div>
+                                <p class="card-text">Discover the crystal-clear waters and dramatic limestone cliffs of El Nido, Palawan, where every corner unveils a new natural wonder, Whether you're island hopping or relaxing on secluded beaches.</p>
+                                <hr>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="price">$129.00/person</span>
+                                    <a href="#" class="btn btn-primary">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="images/card 3.png" class="card-img-top" alt="Mt. Pulag">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title">Mt. Pulag Hiking Trail</h5>
+                                    <button class="heart-button" onclick="toggleHeart(this)"><i class="fas fa-heart"></i></button>
+                                </div>
+                                <p class="card-text">Conquer the majestic Mt. Pulag, known for its breathtaking sea of clouds and scenic trails. Experience the thrill of hiking through diverse landscapes. Explore the greatness at the top of Mt. Pulag</p>
+                                <hr>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="price">$129.00/person</span>
+                                    <a href="#" class="btn btn-primary">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="images/card 3.png" class="card-img-top" alt="Enchanted Kingdom">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title">Enchanted Kingdom</h5>
+                                    <button class="heart-button" onclick="toggleHeart(this)"><i class="fas fa-heart"></i></button>
+                                </div>
+                                <p class="card-text">Experience the magic and thrill of Enchanted Kingdom...</p>
+                                <hr>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="price">$99.00/person</span>
+                                    <a href="#" class="btn btn-primary">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="slide-btn next-btn" onclick="slide(1)">&#10095;</button>
+            </div>
+        </div>
+
+
+        /* Cards CSS */
+.special-offers {
+    text-align: center;
+    margin: 40px 0;
+    margin-top: 80px;
+}
+
+.special-context h2 {
+    font-size: 35px;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: #333;
+}
+
+.special-context p {
+    font-style: italic;
+    font-size: 18px;
+}
+
+/* ---------------------------------- */
+/* Card container styling */
+.slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    position: relative;
+    width: 90%;
+}
+
+.cards-wrapper {
+    overflow: hidden;
+    width: 100%;
+}
+
+.cards {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.card {
+    flex: 0 0 calc(33.33% - 22px);
+    margin: 0 10px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: fill;
+}
+
+.card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.card-text {
+    margin: 15px 0;
+    flex-grow: 1;
+    font-size: 0.9rem;
+    color: #555;
+    text-align: left;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.slide-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.slide-btn:hover {
+    color: #555;
+}
+
+.heart-button {
+    background: none;
+    border: none;
+    color: #bbb;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.heart-button.liked {
+    color: red;
+}
+
+<script>
+    let currentIndex = 0;
+
+    function slide(direction) {
+        const cards = document.querySelector('.cards');
+        const cardWidth = document.querySelector('.card').offsetWidth + 20; // Include margin
+        const totalCards = cards.children.length;
+
+        // Update index and wrap around
+        currentIndex += direction;
+        if (currentIndex < 0) {
+            currentIndex = totalCards - 1; // Go to the last card
+        } else if (currentIndex >= totalCards) {
+            currentIndex = 0; // Wrap back to the first card
+        }
+
+        // Calculate the transform value
+        const offset = currentIndex * cardWidth;
+        cards.style.transform = `translateX(-${offset}px)`;
+    }
+
+    function toggleHeart(button) {
+        button.classList.toggle('liked');
+    }
+
+</script>
