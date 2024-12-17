@@ -1,6 +1,46 @@
 
 <?php
 
+require 'db_config.php';
+
+// Initialize variables to hold user data
+$firstname = $middlename = $lastname = $age = $homeaddress = "";
+
+// Fetch user profile data
+$sql = "SELECT firstname, middlename, lastname, age, homeaddress FROM user_profile WHERE email = ?";
+if ($stmt = $conn->prepare($sql)) {
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($firstname, $middlename, $lastname, $age, $homeaddress);
+        $stmt->fetch();
+    }
+    $stmt->close();
+}
+
+// Handle profile update
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $firstname = trim($_POST['firstname']);
+    $middlename = trim($_POST['middlename']);
+    $lastname = trim($_POST['lastname']);
+    $age = trim($_POST['age']);
+    $homeaddress = trim($_POST['homeaddress']);
+
+    $update_sql = "UPDATE user_profile SET firstname = ?, middlename = ?, lastname = ?, age = ?, homeaddress = ? WHERE email = ?";
+    if ($update_stmt = $conn->prepare($update_sql)) {
+        $update_stmt->bind_param("sssiss", $firstname, $middlename, $lastname, $age, $homeaddress, $email);
+        $update_stmt->execute();
+        $update_stmt->close();
+        echo "<div class='alert alert-success'>Profile updated successfully!</div>";
+    } else {
+        echo "<div class='alert alert-danger'>Error updating profile: " . $conn->error . "</div>";
+    }
+}
+
+$conn->close();
+
 
 ?>
 
@@ -23,12 +63,12 @@
     <div class="container mt-5">
         <h2>User Profile</h2>
         <ul class="list-group">
-            <li class="list-group-item"><strong>First Name:</strong> </li>
-            <li class="list-group-item"><strong>Middle Name:</strong> </li>
-            <li class="list-group-item"><strong>Last Name:</strong> </li>
-            <li class="list-group-item"><strong>Age:</strong> </li>
-            <li class="list-group-item"><strong>Email:</strong> </li>
-            <li class="list-group-item"><strong>Home Address:</strong></li>
+        <li class="list-group-item"><strong>Email:</strong> test@gmail.com</li>
+            <li class="list-group-item"><strong>First Name:</strong> <?php echo htmlspecialchars($firstname); ?></li>
+            <li class="list-group-item"><strong>Middle Name:</strong> <?php echo htmlspecialchars($middlename); ?></li>
+            <li class="list-group-item"><strong>Last Name:</strong> <?php echo htmlspecialchars($lastname); ?></li>
+            <li class="list-group-item"><strong>Age:</strong> <?php echo htmlspecialchars($age); ?></li>
+            <li class="list-group-item"><strong>Home Address:</strong> <?php echo htmlspecialchars($homeaddress); ?></li>
         </ul><br>
         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
     </div>
